@@ -5,7 +5,7 @@ theme: null
 
 # Site settings
 title: "RoboTwin7-Transformer"
-description: "A Comprehensive Benchmark of Transformer-based Policies for Bimanual Robotic Manipulation"
+description: "A Comprehensive Benchmark"
 author: "Your Research Group"
 url: "https://yourusername.github.io"
 baseurl: "/RoboTwin7_Transformer"
