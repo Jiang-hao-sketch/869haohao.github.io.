@@ -1,4 +1,0 @@
-# Minimal GitHub Pages Configuration for static HTML
-
-# Disable Jekyll processing for pure HTML sites
-plugins: []
