@@ -4,11 +4,11 @@
 theme: null
 
 # Site settings
-title: "Transformer"
+title: "RoboTwin7-Transformer"
 description: "A Comprehensive Benchmark of Transformer-based Policies for Bimanual Robotic Manipulation"
 author: "Your Research Group"
-url: "https://869haohao.github.io/Transformer/"
-baseurl: "/Transformer"
+url: "https://yourusername.github.io"
+baseurl: "/RoboTwin7_Transformer"
 
 # Build settings
 markdown: kramdown
