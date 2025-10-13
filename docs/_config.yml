@@ -7,7 +7,7 @@ theme: null
 title: "Transformer"
 description: "A Comprehensive Benchmark of Transformer-based Policies for Bimanual Robotic Manipulation"
 author: "Your Research Group"
-url: "https://869haohao.github.io"
+url: "https://869haohao.github.io/Transformer/"
 baseurl: "/Transformer"
 
 # Build settings
