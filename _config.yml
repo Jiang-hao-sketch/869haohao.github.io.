@@ -1,0 +1,67 @@
+# GitHub Pages Configuration
+
+# Theme
+theme: null
+
+# Site settings
+title: "RoboTwin7-Transformer"
+description: "A Comprehensive Benchmark of Transformer-based Policies for Bimanual Robotic Manipulation"
+author: "Your Research Group"
+url: "https://yourusername.github.io"
+baseurl: "/RoboTwin7_Transformer"
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Exclude files
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - .DS_Store
+
+# Include files
+include:
+  - _static
+  - assets
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# SEO settings
+twitter:
+  username: yourusername
+  card: summary_large_image
+
+social:
+  name: Your Research Group
+  links:
+    - https://github.com/yourusername
+    - https://twitter.com/yourusername
+
+# Google Analytics (optional)
+# google_analytics: UA-XXXXXXXXX-X
+
+# Collections
+collections:
+  architectures:
+    output: true
+    permalink: /:collection/:name
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+      image: /assets/images/og-image.png
+
