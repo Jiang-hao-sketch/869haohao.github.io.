@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HDMT</title>
+    <title>HF-M2C: Efficient Policy Learning for Dual-Arm Coordinated Manipulation</title>
     <style>
         * {
             margin: 0;
@@ -238,13 +238,13 @@
 </head>
 <body>
     <header>
-        <h1>🤖 HDMT</h1>
-        <div class="authors">HHH</div>
-        <div class="affiliation">HKD</div>
-        <div class="conference">2024</div>
+        <h1>🤖 HF-M2C</h1>
+        <div class="authors">Jianghao Sun<sup>1,*</sup>, Pengjun Mao<sup>1,*,†</sup>, Lingju Kong<sup>1</sup>, Wenguang Guo<sup>1</sup>, Yu Wang<sup>1</sup></div>
+        <div class="affiliation"><sup>1</sup>School of Mechanical and Electrical Engineering, Henan University of Science and Technology, China</div>
+        <div class="conference">2025</div>
         <div class="links">
-            <a href="https://jiang-hao-sketch.github.io/869haohao.github.io./" class="btn">📄 arXiv</a>
-            <a href="https://jiang-hao-sketch.github.io/869haohao.github.io./" class="btn">💻 Code</a>
+            <a href="#" class="btn">📄 arXiv</a>
+            <a href="https://github.com/RoboTwin" class="btn">💻 Code</a>
             <a href="#bibtex" class="btn">📚 BibTeX</a>
         </div>
     </header>
@@ -253,178 +253,79 @@
         <section id="abstract">
             <h2>Abstract</h2>
             <div class="abstract">
-                Training hork, we present <strong>111</strong>, a eriments on <span class="highlight">129 simulated tasks</span> acrossuite n overall <span class="highlight">18% absvement</span> .
+                In the field of dual-arm collaborative robotic manipulation, balancing task precision and computational efficiency is crucial. However, existing diffusion policies struggle to achieve this balance due to limited model expressiveness and inefficient iterative sampling. To address this, we propose <strong>HF-M2C (Hierarchical Flow Matching with Mamba2-Cross-Attention)</strong>, an action generation policy framework specifically designed for dual-arm manipulation. This framework achieves breakthroughs through three core designs: employing <strong>FiLM mechanisms</strong> for task-conditional modulation of the visual encoder; introducing <strong>Mamba2 state space models</strong> working synergistically with Cross-Attention to strengthen sequential modeling of dual-arm action dependencies; and utilizing <strong>conditional flow matching</strong> to regress deterministic velocity fields, directly learning action evolution trajectories to simplify training and significantly reduce dependence on iterative denoising. Extensive experiments on the RoboTwin2 benchmark demonstrate that HF-M2C achieves superior performance across multiple synchronous and asynchronous dual-arm manipulation tasks while maintaining high real-time inference efficiency.
             </div>
         </section>
 
         <section id="architecture">
-            <h2>Proposed Architecture</h2>
-            <img src="assets/111.png" alt="Architecture" class="architecture-img">
-            <div class="architecture-description">
-                <strong>1</strong> is broken down into modality-specific sensory encoders, an observation trunk, and an action head predicting a chunk of actions. 1 takes as input observations from multiple camera views, robot proprioceptive state and a task instruction and enables performing closed-loop control at 10Hz in our real world experiments on the xArm.
-            </div>
-        </section>
-
-        <section id="benchmarks">
-            <h2>Simulated Environments</h2>
-            <p>111.</p>
-            <div class="benchmark-grid">
-                <div class="benchmark-card">
-                    <h3>LIBERO</h3>
-                    <div class="metric">36%</div>
-                    <p>Absolute improvement over baselines</p>
-                </div>
-                <div class="benchmark-card">
-                    <h3>Meta-World</h3>
-                    <div class="metric">50</div>
-                    <p>Tasks evaluated</p>
-                </div>
-                <div class="benchmark-card">
-                    <h3>DM Control</h3>
-                    <div class="metric">12</div>
-                    <p>Control tasks</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="performance">
-            <h2>Multi-Task Performance</h2>
-            <p>11n:</p>
-            <table class="results-table">
-                <thead>
-                    <tr>
-                        <th>Method</th>
-                        <th>LIBERO</th>
-                        <th>Meta-World</th>
-                        <th>DM Control</th>
-                        <th>Overall</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>RT-1</strong></td>
-                        <td>45.2%</td>
-                        <td>72.3%</td>
-                        <td>68.5%</td>
-                        <td>62.0%</td>
-                    </tr>
-                    <tr>
-                        <td><strong>MT-ACT</strong></td>
-                        <td>48.6%</td>
-                        <td>75.1%</td>
-                        <td>71.2%</td>
-                        <td>64.9%</td>
-                    </tr>
-                    <tr style="background-color: #d4edda;">
-                        <td><strong>1 (Ours)</strong></td>
-                        <td><span class="highlight">84.3%</span></td>
-                        <td><span class="highlight">88.7%</span></td>
-                        <td><span class="highlight">79.6%</span></td>
-                        <td><span class="highlight">84.2%</span></td>
-                    </tr>
-                </tbody>
-            </table>
+            <h2>Framework Architecture</h2>
+            <img src="assets/architecture.png" alt="HF-M2C Architecture" class="architecture-img">
         </section>
 
         <section id="real-world">
-            <h2>Real World Rollouts</h2>
-            <p>Utilizing 1, we execute a <strong>total of 30 tasks</strong> on our xArm multi-task kitchen environment. 1 with an average of just <strong>17 demonstrations per task</strong> achieves a <strong>91% success rate</strong>, a <strong>35% improvement</strong> over the strongest baseline. All videos are played at 1X speed.</p>
+            <h2>Experimental Tasks on ALOHA-Agilex Robot</h2>
+            <p>We evaluate HF-M2C on <strong>6 dual-arm manipulation tasks</strong> that require precise coordination between both arms. These tasks include both synchronous operations (e.g., lifting pot, stacking bowls) and asynchronous coordination (e.g., placing objects while maintaining balance). All videos are played at 1X speed.</p>
             
-            <h3 style="margin-top: 40px; color: #28a745;">✅ Successful Rollouts</h3>
             <div class="video-grid">
                 <div class="video-item">
-                    <h3>Close/Open Oven Door</h3>
+                    <h3>Lift Pot</h3>
                     <video controls>
-                        <source src="videos/oven_door.mp4" type="video/mp4">
+                        <source src="videos/lift_pot.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
                 <div class="video-item">
-                    <h3>Fetch Glass from Rack</h3>
+                    <h3>Pick Dual Bottles</h3>
                     <video controls>
-                        <source src="videos/fetch_glass.mp4" type="video/mp4">
+                        <source src="videos/pick_dual_bottles.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
                 <div class="video-item">
-                    <h3>Put Ketchup Inside Fridge</h3>
+                    <h3>Place Burger Fries</h3>
                     <video controls>
-                        <source src="videos/ketchup_fridge.mp4" type="video/mp4">
+                        <source src="videos/place_burger_fries.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
                 <div class="video-item">
-                    <h3>Pick Blue Plate</h3>
+                    <h3>Put Object Cabinet</h3>
                     <video controls>
-                        <source src="videos/pick_plate.mp4" type="video/mp4">
+                        <source src="videos/put_object_cabinet.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
                 <div class="video-item">
-                    <h3>Place Glass on Rack</h3>
+                    <h3>Stack Bowls Two</h3>
                     <video controls>
-                        <source src="videos/place_glass.mp4" type="video/mp4">
+                        <source src="videos/stack_bowls_two.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
                 <div class="video-item">
-                    <h3>Wipe Towel</h3>
+                    <h3>Stack Bowls Three</h3>
                     <video controls>
-                        <source src="videos/wipe_towel.mp4" type="video/mp4">
+                        <source src="videos/stack_bowls_three.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
             </div>
-        </section>
-
-        <section id="long-horizon">
-            <h2>1 on Long Horizon Tasks</h2>
-            <p>We evaluate 1 on <strong>5 long-horizon tasks</strong> in our xArm multi-task kitchen environment. 1 with an average of just <strong>19 demonstrations per task</strong> achieves an <strong>84% success rate</strong>, a <strong>20% improvement</strong> over our strongest baseline, MT-ACT.</p>
-            <div class="video-grid">
-                <div class="video-item">
-                    <h3>Set Up the Table</h3>
-                    <video controls>
-                        <source src="videos/setup_table.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <div class="video-item">
-                    <h3>Pick Broom and Sweep</h3>
-                    <video controls>
-                        <source src="videos/broom_sweep.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <div class="video-item">
-                    <h3>Take Bowl Out of Oven</h3>
-                    <video controls>
-                        <source src="videos/bowl_oven.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </div>
-        </section>
-
-        <section id="ablation">
-            <h2>What Matters for Multi-Task Policy Learning?</h2>
-            <p>We perform an extensive ablation study to understand the importance of different components for multi-task policy learning.</p>
-            <img src="assets/111.png" alt="Ablation Study" class="architecture-img">
         </section>
 
         <section id="bibtex">
             <h2>BibTeX</h2>
-            <pre><code>@article{haldar20241,
-    title={1: An Efficient Transformer for Multi-Task Policy Learning},
-    author={Haldar, Siddhant and Peng, Zhuoran and Pinto, Lerrel},
-    journal={arXiv preprint arXiv:2406.07539},
-    year={2024}
+            <pre><code>@article{sun2025hfm2c,
+    title={HF-M2C: Efficient Policy Learning for Dual-Arm Coordinated Manipulation},
+    author={Sun, Jianghao and Mao, Pengjun and Kong, Lingju and Guo, Wenguang and Wang, Yu},
+    journal={arXiv preprint},
+    year={2025}
 }</code></pre>
         </section>
     </div>
 
     <footer>
-        <p>This webpage template was inspired by the 1 project website.</p>
-        <p>© 2024 New York University. All rights reserved.</p>
+        <p>This webpage template is adapted for the HF-M2C project.</p>
+        <p>© 2025 Henan University of Science and Technology. All rights reserved.</p>
     </footer>
 </body>
 </html>
