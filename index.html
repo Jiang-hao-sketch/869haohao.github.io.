@@ -244,7 +244,6 @@
         <div class="conference">2025</div>
         <div class="links">
             <a href="#" class="btn">📄 arXiv</a>
-            <a href="https://github.com/RoboTwin" class="btn">💻 Code</a>
             <a href="#bibtex" class="btn">📚 BibTeX</a>
         </div>
     </header>
@@ -262,9 +261,9 @@
             <img src="assets/architecture.png" alt="HF-M2C Architecture" class="architecture-img">
         </section>
 
-        <section id="real-world">
-            <h2>Experimental Tasks on ALOHA-Agilex Robot</h2>
-            <p>We evaluate HF-M2C on <strong>6 dual-arm manipulation tasks</strong> that require precise coordination between both arms. These tasks include both synchronous operations (e.g., lifting pot, stacking bowls) and asynchronous coordination (e.g., placing objects while maintaining balance). All videos are played at 1X speed.</p>
+        <section id="aloha-experiments">
+            <h2>Experiments on ALOHA-Agilex Robot</h2>
+            <p>We evaluate HF-M2C on <strong>6 dual-arm manipulation tasks</strong> on the ALOHA-Agilex platform. These tasks require precise coordination between both arms and include both synchronous operations (e.g., lifting pot, stacking bowls) and asynchronous coordination (e.g., placing objects while maintaining balance). All videos are played at 1X speed.</p>
             
             <div class="video-grid">
                 <div class="video-item">
@@ -306,6 +305,28 @@
                     <h3>Stack Bowls Three</h3>
                     <video controls>
                         <source src="videos/stack_bowls_three.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <section id="franka-experiments">
+            <h2>Experiments on Franka Dual-Arm Robot</h2>
+            <p>To validate the generalization capability of HF-M2C across different robot platforms, we conduct experiments on the Franka dual-arm robot. The results demonstrate that our method maintains robust performance even when transferred to different robot morphologies.</p>
+            
+            <div class="video-grid">
+                <div class="video-item">
+                    <h3>Lift Pot</h3>
+                    <video controls>
+                        <source src="videos/franka_lift_pot.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="video-item">
+                    <h3>Stack Bowls Three</h3>
+                    <video controls>
+                        <source src="videos/franka_stack_bowls.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
