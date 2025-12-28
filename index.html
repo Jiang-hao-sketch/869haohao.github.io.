@@ -119,6 +119,13 @@
             margin-top: 30px;
         }
 
+        .video-grid-2x2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
         .video-item {
             background-color: #f8f9fa;
             padding: 20px;
@@ -233,6 +240,10 @@
             .video-grid {
                 grid-template-columns: 1fr;
             }
+
+            .video-grid-2x2 {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -265,7 +276,7 @@
             <h2>Experiments on ALOHA-Agilex Robot</h2>
             <p>We evaluate HF-M2C on <strong>4 dual-arm manipulation tasks</strong> on the ALOHA-Agilex platform. These tasks require precise coordination between both arms and include both synchronous operations and asynchronous coordination. All videos are played at 1X speed.</p>
             
-            <div class="video-grid">
+            <div class="video-grid-2x2">
                 <div class="video-item">
                     <h3>Pick Dual Bottles</h3>
                     <video controls>
